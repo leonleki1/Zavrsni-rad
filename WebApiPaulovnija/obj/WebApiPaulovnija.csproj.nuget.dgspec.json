@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lekil\\Documents\\GitHub\\Zavrsni\\WebApiPaulovnija\\WebApiPaulovnija.csproj": {}
+    "C:\\Users\\lekil\\Documents\\GitHub\\Zavrsni\\Zavrsni-rad\\WebApiPaulovnija\\WebApiPaulovnija.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lekil\\Documents\\GitHub\\Zavrsni\\WebApiPaulovnija\\WebApiPaulovnija.csproj": {
+    "C:\\Users\\lekil\\Documents\\GitHub\\Zavrsni\\Zavrsni-rad\\WebApiPaulovnija\\WebApiPaulovnija.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lekil\\Documents\\GitHub\\Zavrsni\\WebApiPaulovnija\\WebApiPaulovnija.csproj",
+        "projectUniqueName": "C:\\Users\\lekil\\Documents\\GitHub\\Zavrsni\\Zavrsni-rad\\WebApiPaulovnija\\WebApiPaulovnija.csproj",
         "projectName": "WebApiPaulovnija",
-        "projectPath": "C:\\Users\\lekil\\Documents\\GitHub\\Zavrsni\\WebApiPaulovnija\\WebApiPaulovnija.csproj",
+        "projectPath": "C:\\Users\\lekil\\Documents\\GitHub\\Zavrsni\\Zavrsni-rad\\WebApiPaulovnija\\WebApiPaulovnija.csproj",
         "packagesPath": "C:\\Users\\lekil\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lekil\\Documents\\GitHub\\Zavrsni\\WebApiPaulovnija\\obj\\",
+        "outputPath": "C:\\Users\\lekil\\Documents\\GitHub\\Zavrsni\\Zavrsni-rad\\WebApiPaulovnija\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lekil\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -45,6 +45,22 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.5.1, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.SqlServer.Server": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"

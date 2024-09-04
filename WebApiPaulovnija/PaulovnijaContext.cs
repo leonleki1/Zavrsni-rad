@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using WebApiPaulovnija.Controllers.Models;
+
 
 namespace WebApiPaulovnija.Data
 {
@@ -7,6 +9,6 @@ namespace WebApiPaulovnija.Data
 
         public Paulovnijacontext(DbContextOptions<Paulovnijacontext> opcije) : base(opcije) { }
 
-
+        public DbSet<Radnik> Radnici {  get; set; } 
     }
 }

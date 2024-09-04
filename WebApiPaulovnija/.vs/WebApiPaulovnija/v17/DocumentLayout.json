@@ -1,13 +1,41 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\lekil\\Documents\\GitHub\\Zavrsni\\WebApiPaulovnija\\",
+  "WorkspaceRootPath": "C:\\Users\\lekil\\Documents\\GitHub\\Zavrsni\\Zavrsni-rad\\WebApiPaulovnija\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9CBFECEF-F98E-41D4-AA8E-FB40E61FA331}|WebApiPaulovnija.csproj|c:\\users\\lekil\\documents\\github\\zavrsni\\webapipaulovnija\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{9CBFECEF-F98E-41D4-AA8E-FB40E61FA331}|WebApiPaulovnija.csproj|c:\\users\\lekil\\documents\\github\\zavrsni\\zavrsni-rad\\webapipaulovnija\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{9CBFECEF-F98E-41D4-AA8E-FB40E61FA331}|WebApiPaulovnija.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9CBFECEF-F98E-41D4-AA8E-FB40E61FA331}|WebApiPaulovnija.csproj|c:\\users\\lekil\\documents\\github\\zavrsni\\webapipaulovnija\\webapipaulovnija.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "AbsoluteMoniker": "D:0:0:{9CBFECEF-F98E-41D4-AA8E-FB40E61FA331}|WebApiPaulovnija.csproj|c:\\users\\lekil\\documents\\github\\zavrsni\\zavrsni-rad\\webapipaulovnija\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{9CBFECEF-F98E-41D4-AA8E-FB40E61FA331}|WebApiPaulovnija.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CBFECEF-F98E-41D4-AA8E-FB40E61FA331}|WebApiPaulovnija.csproj|c:\\users\\lekil\\documents\\github\\zavrsni\\zavrsni-rad\\webapipaulovnija\\webapipaulovnija.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{9CBFECEF-F98E-41D4-AA8E-FB40E61FA331}|WebApiPaulovnija.csproj|solutionrelative:webapipaulovnija.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CBFECEF-F98E-41D4-AA8E-FB40E61FA331}|WebApiPaulovnija.csproj|c:\\users\\lekil\\documents\\github\\zavrsni\\zavrsni-rad\\webapipaulovnija\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CBFECEF-F98E-41D4-AA8E-FB40E61FA331}|WebApiPaulovnija.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CBFECEF-F98E-41D4-AA8E-FB40E61FA331}|WebApiPaulovnija.csproj|c:\\users\\lekil\\documents\\github\\zavrsni\\zavrsni-rad\\webapipaulovnija\\controllers\\radnikcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CBFECEF-F98E-41D4-AA8E-FB40E61FA331}|WebApiPaulovnija.csproj|solutionrelative:controllers\\radnikcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CBFECEF-F98E-41D4-AA8E-FB40E61FA331}|WebApiPaulovnija.csproj|c:\\users\\lekil\\documents\\github\\zavrsni\\zavrsni-rad\\webapipaulovnija\\models1\\radnik.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CBFECEF-F98E-41D4-AA8E-FB40E61FA331}|WebApiPaulovnija.csproj|solutionrelative:models1\\radnik.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CBFECEF-F98E-41D4-AA8E-FB40E61FA331}|WebApiPaulovnija.csproj|c:\\users\\lekil\\documents\\github\\zavrsni\\zavrsni-rad\\webapipaulovnija\\models1\\radnici.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CBFECEF-F98E-41D4-AA8E-FB40E61FA331}|WebApiPaulovnija.csproj|solutionrelative:models1\\radnici.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CBFECEF-F98E-41D4-AA8E-FB40E61FA331}|WebApiPaulovnija.csproj|c:\\users\\lekil\\documents\\github\\zavrsni\\zavrsni-rad\\webapipaulovnija\\paulovnijacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CBFECEF-F98E-41D4-AA8E-FB40E61FA331}|WebApiPaulovnija.csproj|solutionrelative:paulovnijacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CBFECEF-F98E-41D4-AA8E-FB40E61FA331}|WebApiPaulovnija.csproj|c:\\users\\lekil\\documents\\github\\zavrsni\\zavrsni-rad\\webapipaulovnija\\webapipaulovnija.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
       "RelativeMoniker": "D:0:0:{9CBFECEF-F98E-41D4-AA8E-FB40E61FA331}|WebApiPaulovnija.csproj|solutionrelative:webapipaulovnija.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     }
   ],
@@ -18,28 +46,119 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "WebApiPaulovnija",
+              "DocumentMoniker": "C:\\Users\\lekil\\Documents\\GitHub\\Zavrsni\\Zavrsni-rad\\WebApiPaulovnija\\WebApiPaulovnija.csproj",
+              "RelativeDocumentMoniker": "WebApiPaulovnija.csproj",
+              "ToolTip": "C:\\Users\\lekil\\Documents\\GitHub\\Zavrsni\\Zavrsni-rad\\WebApiPaulovnija\\WebApiPaulovnija.csproj",
+              "RelativeToolTip": "WebApiPaulovnija.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-09-04T16:57:30.802Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\lekil\\Documents\\GitHub\\Zavrsni\\Zavrsni-rad\\WebApiPaulovnija\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\lekil\\Documents\\GitHub\\Zavrsni\\Zavrsni-rad\\WebApiPaulovnija\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Properties\\launchSettings.json",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-09-04T16:49:12.741Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Radnici.cs",
+              "DocumentMoniker": "C:\\Users\\lekil\\Documents\\GitHub\\Zavrsni\\Zavrsni-rad\\WebApiPaulovnija\\Models1\\Radnici.cs",
+              "RelativeDocumentMoniker": "Models1\\Radnici.cs",
+              "ToolTip": "C:\\Users\\lekil\\Documents\\GitHub\\Zavrsni\\Zavrsni-rad\\WebApiPaulovnija\\Models1\\Radnici.cs",
+              "RelativeToolTip": "Models1\\Radnici.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-04T16:39:00.122Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RadnikController.cs",
+              "DocumentMoniker": "C:\\Users\\lekil\\Documents\\GitHub\\Zavrsni\\Zavrsni-rad\\WebApiPaulovnija\\Controllers\\RadnikController.cs",
+              "RelativeDocumentMoniker": "Controllers\\RadnikController.cs",
+              "ToolTip": "C:\\Users\\lekil\\Documents\\GitHub\\Zavrsni\\Zavrsni-rad\\WebApiPaulovnija\\Controllers\\RadnikController.cs",
+              "RelativeToolTip": "Controllers\\RadnikController.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAUwAgAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-04T16:37:09.042Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\lekil\\Documents\\GitHub\\Zavrsni\\Zavrsni-rad\\WebApiPaulovnija\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\lekil\\Documents\\GitHub\\Zavrsni\\Zavrsni-rad\\WebApiPaulovnija\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-04T16:11:56.05Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PaulovnijaContext.cs",
+              "DocumentMoniker": "C:\\Users\\lekil\\Documents\\GitHub\\Zavrsni\\Zavrsni-rad\\WebApiPaulovnija\\PaulovnijaContext.cs",
+              "RelativeDocumentMoniker": "PaulovnijaContext.cs",
+              "ToolTip": "C:\\Users\\lekil\\Documents\\GitHub\\Zavrsni\\Zavrsni-rad\\WebApiPaulovnija\\PaulovnijaContext.cs",
+              "RelativeToolTip": "PaulovnijaContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-03T15:45:49.464Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "appsettings.Development.json",
-              "DocumentMoniker": "C:\\Users\\lekil\\Documents\\GitHub\\Zavrsni\\WebApiPaulovnija\\appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\lekil\\Documents\\GitHub\\Zavrsni\\Zavrsni-rad\\WebApiPaulovnija\\appsettings.Development.json",
               "RelativeDocumentMoniker": "appsettings.Development.json",
-              "ToolTip": "C:\\Users\\lekil\\Documents\\GitHub\\Zavrsni\\WebApiPaulovnija\\appsettings.Development.json",
-              "RelativeToolTip": "appsettings.Development.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAOAAAA",
+              "ToolTip": "C:\\Users\\lekil\\Documents\\GitHub\\Zavrsni\\Zavrsni-rad\\WebApiPaulovnija\\appsettings.Development.json*",
+              "RelativeToolTip": "appsettings.Development.json*",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-09-03T15:31:29.923Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
+              "Title": "Radnik.cs",
+              "DocumentMoniker": "C:\\Users\\lekil\\Documents\\GitHub\\Zavrsni\\Zavrsni-rad\\WebApiPaulovnija\\Models1\\Radnik.cs",
+              "RelativeDocumentMoniker": "Models1\\Radnik.cs",
+              "ToolTip": "C:\\Users\\lekil\\Documents\\GitHub\\Zavrsni\\Zavrsni-rad\\WebApiPaulovnija\\Models1\\Radnik.cs",
+              "RelativeToolTip": "Models1\\Radnik.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-04T16:39:29.136Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "WebApiPaulovnija",
-              "DocumentMoniker": "C:\\Users\\lekil\\Documents\\GitHub\\Zavrsni\\WebApiPaulovnija\\WebApiPaulovnija.csproj",
+              "DocumentMoniker": "C:\\Users\\lekil\\Documents\\GitHub\\Zavrsni\\Zavrsni-rad\\WebApiPaulovnija\\WebApiPaulovnija.csproj",
               "RelativeDocumentMoniker": "WebApiPaulovnija.csproj",
-              "ToolTip": "C:\\Users\\lekil\\Documents\\GitHub\\Zavrsni\\WebApiPaulovnija\\WebApiPaulovnija.csproj",
+              "ToolTip": "C:\\Users\\lekil\\Documents\\GitHub\\Zavrsni\\Zavrsni-rad\\WebApiPaulovnija\\WebApiPaulovnija.csproj",
               "RelativeToolTip": "WebApiPaulovnija.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2024-09-03T15:31:20.56Z",
