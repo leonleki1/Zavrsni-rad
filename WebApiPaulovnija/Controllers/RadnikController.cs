@@ -1,35 +1,82 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using WebApiPaulovnija.Controllers.Models;
 using WebApiPaulovnija.Data;
 
 namespace WebApiPaulovnija.Controllers
 {
     [ApiController]
     [Route("api/v1/[controller]")]
-
     public class RadnikController : ControllerBase
     {
         private readonly Paulovnijacontext _context;
-
         public RadnikController(Paulovnijacontext context)
         {
             _context = context;
         }
+
         [HttpGet]
-        public ActionResult get()
+        public IActionResult Get()
         {
             return Ok(_context.Radnici);
         }
+
         [HttpGet]
-        [Route("{Radnici:int}")]
-        public IActionResult Get(int Radnik)
+        [Route("{id:int}")]
+        public IActionResult Get(int id)
         {
-            var Radnici = _context.Radnici.Find(Radnik);
-            if (Radnik == null)
+            var radnik = _context.Radnici.Find(id);
+            if (radnik == null)
             {
                 return NotFound();
-
             }
-            return Ok (Radnici);
+            return Ok(radnik);
+        }
+
+        [HttpPost]
+        public IActionResult Post(Radnik radnik)
+        {
+            _context.Radnici.Add(radnik);
+            _context.SaveChanges();
+            return StatusCode(StatusCodes.Status201Created, radnik);
+        }
+
+        [HttpPut]
+        [Route("{id:int}")]
+        public IActionResult Put(int id, Radnik updatedRadnik)
+        {
+            var radnik = _context.Radnici.Find(id);
+            if (radnik == null)
+            {
+                return NotFound();
+            }
+
+            
+            radnik.Ime = updatedRadnik.Ime;
+            radnik.Prezime = updatedRadnik.Prezime;
+            radnik.Godine = updatedRadnik.Godine;
+            radnik.Pozicija = updatedRadnik.Pozicija;
+            radnik.Plata = updatedRadnik.Plata;
+            
+
+            _context.SaveChanges();
+            return Ok(radnik);
+        }
+
+        [HttpDelete]
+        [Route("{id:int}")]
+        public IActionResult Delete(int id)
+        {
+            var radnik = _context.Radnici.Find(id);
+            if (radnik == null)
+            {
+                return NotFound();
+            }
+
+            _context.Radnici.Remove(radnik);
+            _context.SaveChanges();
+            return NoContent();
         }
     }
 }

@@ -2,6 +2,7 @@ using WebApiPaulovnija.Data;
 using Microsoft.EntityFrameworkCore;
 
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -20,8 +21,11 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
+    bool opcije = false;
     app.UseSwaggerUI();
 }
+
+
 
 app.UseHttpsRedirection();
 

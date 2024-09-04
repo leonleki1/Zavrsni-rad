@@ -2,7 +2,7 @@
 
 namespace WebApiPaulovnija.Controllers.Models
 {
-    public class Radnik
+    public class Radnici
     {
         [Key]
         public int ID_Radnika { get; set; }

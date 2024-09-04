@@ -1,6 +1,6 @@
 ﻿namespace WebApiPaulovnija.Controllers.Models
 {
-    public class Radnici : Radnik
+    public class Radnik : Radnici
     {
         public string? Ime { get; set; }
         public string? Prezime { get; set; }
