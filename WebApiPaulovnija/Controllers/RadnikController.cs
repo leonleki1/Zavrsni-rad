@@ -19,8 +19,17 @@ namespace WebApiPaulovnija.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(_context.Radnici);
+            try
+            {
+                return Ok(_context.Radnici);
+
+            }
+            catch (Exception ex) 
+            {
+                return BadRequest(ex.Message);
+            }
         }
+
 
         [HttpGet]
         [Route("{id:int}")]

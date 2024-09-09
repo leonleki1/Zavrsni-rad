@@ -18,11 +18,14 @@ builder.Services.AddDbContext<Paulovnijacontext>(options =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+//if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    bool opcije = false;
-    app.UseSwaggerUI();
+
+    app.UseSwaggerUI(opcije=>
+    {
+        opcije.ConfigObject.AdditionalItems.Add("requestSnippetsEnabled",true);
+    });
 }
 
 
@@ -32,5 +35,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
-
+app.UseStaticFiles();
+app.UseDefaultFiles();
+app.MapFallbackToFile("index.html");
 app.Run();
