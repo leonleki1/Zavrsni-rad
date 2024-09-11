@@ -7,7 +7,7 @@ using WebApiPaulovnija.Data;
 namespace WebApiPaulovnija.Controllers
 {
     [ApiController]
-    [Route("api/v1/[controller]")]
+    [Route("api/[controller]/[action]")]
     public class RadnikController : ControllerBase
     {
         private readonly Paulovnijacontext _context;
