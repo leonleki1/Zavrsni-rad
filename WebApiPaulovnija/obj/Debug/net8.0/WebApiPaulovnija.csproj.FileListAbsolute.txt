@@ -69,3 +69,5 @@ C:\Users\lekil\Documents\GitHub\Zavrsni\Zavrsni-rad\WebApiPaulovnija\obj\Debug\n
 C:\Users\lekil\Documents\GitHub\Zavrsni\Zavrsni-rad\WebApiPaulovnija\obj\Debug\net8.0\WebApiPaulovnija.pdb
 C:\Users\lekil\Documents\GitHub\Zavrsni\Zavrsni-rad\WebApiPaulovnija\obj\Debug\net8.0\WebApiPaulovnija.genruntimeconfig.cache
 C:\Users\lekil\Documents\GitHub\Zavrsni\Zavrsni-rad\WebApiPaulovnija\obj\Debug\net8.0\ref\WebApiPaulovnija.dll
+C:\Users\lekil\Documents\GitHub\Zavrsni\Zavrsni-rad\WebApiPaulovnija\bin\Debug\net8.0\WebApiPaulovnija.staticwebassets.runtime.json
+C:\Users\lekil\Documents\GitHub\Zavrsni\Zavrsni-rad\WebApiPaulovnija\bin\Debug\net8.0\AutoMapper.dll

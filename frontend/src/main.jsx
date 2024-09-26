@@ -1,14 +1,21 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
-import { BrowserRouter } from 'react-router-dom'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import App from './App';
+import Home from './Home';
+import Radnici from './Radnici';
 
-createRoot(document.getElementById('root')).render(
-  <strictmode>,
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
-  </strictmode>,
- 
-)
+const Main = () => {
+  return (
+    <Router>
+      <App />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/radnici" element={<Radnici />} />
+        {/* Dodaj ostale rute ovdje */}
+      </Routes>
+    </Router>
+  );
+};
+
+ReactDOM.createRoot(document.getElementById('root')).render(<Main />);

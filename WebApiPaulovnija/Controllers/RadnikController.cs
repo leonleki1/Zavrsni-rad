@@ -1,59 +1,64 @@
-﻿
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebApiPaulovnija.Controllers.Models;
 using WebApiPaulovnija.Data;
+using WebApiPaulovnija.DTO;
+using AutoMapper;
 
 namespace WebApiPaulovnija.Controllers
 {
     [ApiController]
-    [Route("api/[controller]/[action]")]
+    [Route("api/[controller]")]
     public class RadnikController : ControllerBase
     {
         private readonly Paulovnijacontext _context;
-        public RadnikController(Paulovnijacontext context)
+        private readonly IMapper _mapper;
+
+        public RadnikController(Paulovnijacontext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult GetAll()
         {
             try
             {
-                return Ok(_context.Radnici);
-
+                var radnici = _context.Radnici.ToList();
+                var radniciDto = _mapper.Map<List<RadnikDto>>(radnici);
+                return Ok(radniciDto);
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
         }
 
-
-        [HttpGet]
-        [Route("{id:int}")]
-        public IActionResult Get(int id)
+        [HttpGet("{id:int}")]
+        public IActionResult GetById(int id)
         {
             var radnik = _context.Radnici.Find(id);
             if (radnik == null)
             {
                 return NotFound();
             }
-            return Ok(radnik);
+            var radnikDto = _mapper.Map<RadnikDto>(radnik);
+            return Ok(radnikDto);
         }
 
         [HttpPost]
-        public IActionResult Post(Radnik radnik)
+        public IActionResult Create(KreirajRadnika createRadnikDto)
         {
+            var radnik = _mapper.Map<Radnik>(createRadnikDto);
             _context.Radnici.Add(radnik);
             _context.SaveChanges();
-            return StatusCode(StatusCodes.Status201Created, radnik);
+            var radnikDto = _mapper.Map<RadnikDto>(radnik);
+            return StatusCode(StatusCodes.Status201Created, radnikDto);
         }
 
-        [HttpPut]
-        [Route("{id:int}")]
-        public IActionResult Put(int id, Radnik updatedRadnik)
+        [HttpPut("{id:int}")]
+        public IActionResult Update(int id, AzurirajRadnika updatedRadnikDto)
         {
             var radnik = _context.Radnici.Find(id);
             if (radnik == null)
@@ -61,20 +66,13 @@ namespace WebApiPaulovnija.Controllers
                 return NotFound();
             }
 
-            
-            radnik.Ime = updatedRadnik.Ime;
-            radnik.Prezime = updatedRadnik.Prezime;
-            radnik.Godine = updatedRadnik.Godine;
-            radnik.Pozicija = updatedRadnik.Pozicija;
-            radnik.Plata = updatedRadnik.Plata;
-            
-
+            _mapper.Map(updatedRadnikDto, radnik);
             _context.SaveChanges();
-            return Ok(radnik);
+            var radnikDto = _mapper.Map<RadnikDto>(radnik);
+            return Ok(radnikDto);
         }
 
-        [HttpDelete]
-        [Route("{id:int}")]
+        [HttpDelete("{id:int}")]
         public IActionResult Delete(int id)
         {
             var radnik = _context.Radnici.Find(id);

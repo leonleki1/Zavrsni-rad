@@ -5,6 +5,7 @@ C:\Users\lekil\Documents\GitHub\Zavrsni\Zavrsni-rad\WebApiPaulovnija\obj\Release
 C:\Users\lekil\Documents\GitHub\Zavrsni\Zavrsni-rad\WebApiPaulovnija\obj\Release\net8.0\PubTmp\Out\WebApiPaulovnija.deps.json
 C:\Users\lekil\Documents\GitHub\Zavrsni\Zavrsni-rad\WebApiPaulovnija\obj\Release\net8.0\PubTmp\Out\WebApiPaulovnija.runtimeconfig.json
 C:\Users\lekil\Documents\GitHub\Zavrsni\Zavrsni-rad\WebApiPaulovnija\obj\Release\net8.0\PubTmp\Out\WebApiPaulovnija.pdb
+C:\Users\lekil\Documents\GitHub\Zavrsni\Zavrsni-rad\WebApiPaulovnija\obj\Release\net8.0\PubTmp\Out\AutoMapper.dll
 C:\Users\lekil\Documents\GitHub\Zavrsni\Zavrsni-rad\WebApiPaulovnija\obj\Release\net8.0\PubTmp\Out\Azure.Core.dll
 C:\Users\lekil\Documents\GitHub\Zavrsni\Zavrsni-rad\WebApiPaulovnija\obj\Release\net8.0\PubTmp\Out\Azure.Identity.dll
 C:\Users\lekil\Documents\GitHub\Zavrsni\Zavrsni-rad\WebApiPaulovnija\obj\Release\net8.0\PubTmp\Out\Microsoft.Bcl.AsyncInterfaces.dll

@@ -1,36 +1,39 @@
-using WebApiPaulovnija.Data;
+﻿using WebApiPaulovnija;
 using Microsoft.EntityFrameworkCore;
-
-
+using WebApiPaulovnija.Data;
+using AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddAutoMapper(typeof(Program));  
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
 builder.Services.AddDbContext<Paulovnijacontext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("PaulovnijaContext")));
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Paulovnijacontext"));
+});
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CorsPolicy",
+        builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+});
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-//if (app.Environment.IsDevelopment())
+
+app.UseSwagger();
+app.UseSwaggerUI(options =>
 {
-    app.UseSwagger();
-
-    app.UseSwaggerUI(opcije=>
-    {
-        opcije.ConfigObject.AdditionalItems.Add("requestSnippetsEnabled",true);
-    });
-}
-
-
+    options.ConfigObject.AdditionalItems.Add("requestSnippetsEnabled", true);
+    options.EnableTryItOutByDefault();
+});
 
 app.UseHttpsRedirection();
+app.UseCors("CorsPolicy");
 
 app.UseAuthorization();
 
@@ -38,4 +41,5 @@ app.MapControllers();
 app.UseStaticFiles();
 app.UseDefaultFiles();
 app.MapFallbackToFile("index.html");
+
 app.Run();

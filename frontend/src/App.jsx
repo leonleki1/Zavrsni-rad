@@ -1,29 +1,37 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
 import './App.css';
-import treeLogo from '/tree.png';
 
 function App() {
   return (
-    <div>
-      <nav className="navbar navbar-expand-lg navbar-light fixed-top">
-        <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            Paulovnija
-          </a>
-          <img src={treeLogo} alt="Tree Logo" width="50" height="50" className="tree-logo" />
-          <a className="nav-link" href="#">O Paulovniji</a>
-          <div className="dropdown ms-auto">
-            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Meni
-            </a>
-            <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a className="dropdown-item" href="#">Radnici</a></li>
-              <li><a className="dropdown-item" href="#">Strojevi</a></li>
-              <li><a className="dropdown-item" href="#">Rasadnik</a></li>
-              <li><a className="dropdown-item" href="#">Zadaci</a></li>
-            </ul>
-          </div>
+    <div className="App">
+      <nav className="navbar">
+        <div className="navbar-brand">
+          <h1>
+            <Link to="/" style={{ color: 'white', textDecoration: 'none' }}>Paulovnija</Link>
+          </h1>
+          <img src="/tree.png" alt="Tree Logo" className="tree-logo" />
         </div>
+        <ul className="nav-links">
+          <li>
+            <Link to="/" className="home-icon">
+              <span className="home-icon-symbol">🏠</span>
+            </Link>
+          </li>
+          <li className="dropdown">
+            <Link to="#">Menu</Link>
+            <div className="dropdown-content">
+              <Link to="/radnici">Radnici</Link>
+              <Link to="#">Zadaci</Link>
+              <Link to="#">Rasadnik</Link>
+              <Link to="#">Strojevi</Link>
+              <Link to="#">Sadnice</Link>
+            </div>
+          </li>
+        </ul>
       </nav>
+
+      {/* Ovdje će se prikazivati sadržaj stranica */}
     </div>
   );
 }
