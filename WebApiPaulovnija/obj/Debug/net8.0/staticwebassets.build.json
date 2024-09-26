@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "5MYE/0vwCixMT0gUCS3LijiupKkbrdxQbsJyhvvnDEs=",
+  "Hash": "Buam/HEejESa6JG1yLmRE0Ua71/o9obZLS5IbILh+0U=",
   "Source": "WebApiPaulovnija",
   "BasePath": "_content/WebApiPaulovnija",
   "Mode": "Default",
@@ -34,6 +34,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\index-CFgSYdAn.js"
+    },
+    {
+      "Identity": "C:\\Users\\lekil\\Documents\\GitHub\\Zavrsni\\Zavrsni-rad\\WebApiPaulovnija\\wwwroot\\assets\\index-DkXAATEw.js",
+      "SourceId": "WebApiPaulovnija",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lekil\\Documents\\GitHub\\Zavrsni\\Zavrsni-rad\\WebApiPaulovnija\\wwwroot\\",
+      "BasePath": "_content/WebApiPaulovnija",
+      "RelativePath": "assets/index-DkXAATEw.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\index-DkXAATEw.js"
     },
     {
       "Identity": "C:\\Users\\lekil\\Documents\\GitHub\\Zavrsni\\Zavrsni-rad\\WebApiPaulovnija\\wwwroot\\assets\\index-DVrQuAlJ.css",

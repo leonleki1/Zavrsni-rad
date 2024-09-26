@@ -48,7 +48,7 @@ namespace WebApiPaulovnija.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(KreirajRadnika createRadnikDto)
+        public IActionResult Create(KreirajRadnikaDTO createRadnikDto)
         {
             var radnik = _mapper.Map<Radnik>(createRadnikDto);
             _context.Radnici.Add(radnik);
@@ -58,7 +58,7 @@ namespace WebApiPaulovnija.Controllers
         }
 
         [HttpPut("{id:int}")]
-        public IActionResult Update(int id, AzurirajRadnika updatedRadnikDto)
+        public IActionResult Update(int id, AzurirajRadnikaDTO updatedRadnikDto)
         {
             var radnik = _context.Radnici.Find(id);
             if (radnik == null)

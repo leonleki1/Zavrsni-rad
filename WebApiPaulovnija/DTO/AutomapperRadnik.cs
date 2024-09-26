@@ -9,7 +9,7 @@ public class RadnikProfile : Profile
     public RadnikProfile()
     {
         CreateMap<Radnik, RadnikDto>();
-        CreateMap<KreirajRadnika, Radnik>();
-        CreateMap<AzurirajRadnika, Radnik>();
+        CreateMap<KreirajRadnikaDTO, Radnik>();
+        CreateMap<AzurirajRadnikaDTO, Radnik>();
     }
 }
