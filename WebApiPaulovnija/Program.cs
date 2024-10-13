@@ -1,45 +1,51 @@
-﻿using WebApiPaulovnija;
-using Microsoft.EntityFrameworkCore;
-using WebApiPaulovnija.Data;
-using AutoMapper;
+﻿    using WebApiPaulovnija.Mapping;
+    using WebApiPaulovnija.Services;
+    using Microsoft.EntityFrameworkCore;
 
-var builder = WebApplication.CreateBuilder(args);
+    var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
-builder.Services.AddAutoMapper(typeof(Program));  
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+    builder.Services.AddControllers();
 
+    builder.Services.AddEndpointsApiExplorer();
+    builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<Paulovnijacontext>(options =>
-{
-    options.UseSqlServer(builder.Configuration.GetConnectionString("Paulovnijacontext"));
-});
+    builder.Services.AddDbContext<PaulovnijaContext>(opcije =>
+    {
+        opcije.UseSqlServer(builder.Configuration.GetConnectionString("PaulovnijaContext"));
+    });
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("CorsPolicy",
-        builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
-});
+    builder.Services.AddCors(opcije =>
+    {
+        opcije.AddPolicy("CorsPolicy",
+            builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()
+        );
+    });
 
-var app = builder.Build();
+    builder.Services.AddAutoMapper(typeof(MappingProfile));
 
+    builder.Services.AddScoped<IRadnikService, RadnikService>();
+    builder.Services.AddScoped<IRasadnikService, RasadnikService>();
+    builder.Services.AddScoped<IStrojService, StrojService>();
+    builder.Services.AddScoped<ISadnicaService, SadnicaService>();
+    builder.Services.AddScoped<IZadatakService, ZadatakService>();
 
-app.UseSwagger();
-app.UseSwaggerUI(options =>
-{
-    options.ConfigObject.AdditionalItems.Add("requestSnippetsEnabled", true);
-    options.EnableTryItOutByDefault();
-});
+    var app = builder.Build();
 
-app.UseHttpsRedirection();
-app.UseCors("CorsPolicy");
+    app.UseSwagger();
+    app.UseSwaggerUI(opcije =>
+    {
+        opcije.ConfigObject.AdditionalItems.Add("requestSnippetsEnabled", true);
+        opcije.EnableTryItOutByDefault();
+    });
 
-app.UseAuthorization();
+    app.UseHttpsRedirection();
+    app.UseAuthorization();
+    app.UseCors("CorsPolicy");
 
-app.MapControllers();
-app.UseStaticFiles();
-app.UseDefaultFiles();
-app.MapFallbackToFile("index.html");
+    app.MapControllers();
 
-app.Run();
+    app.UseStaticFiles();
+    app.UseDefaultFiles();
+    app.MapFallbackToFile("index.html");
+
+    app.Run();

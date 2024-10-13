@@ -16,59 +16,68 @@ function Radnici() {
 
   const fetchRadnici = async () => {
     try {
-        const response = await fetch('https://leki23-001-site1.atempurl.com/api/Radnik'); // ili vaš produkcijski URL
-        console.log('Response status:', response.status); // Status kod
-        console.log('Response headers:', response.headers.get('content-type')); // Tip sadržaja
-
-        // Ako nije JSON, obavestite korisnika
-        if (!response.ok) {
-            throw new Error('Network response was not ok, status: ' + response.status);
-        }
-        
-        const contentType = response.headers.get('content-type');
-        if (contentType && contentType.includes('application/json')) {
-            const data = await response.json();
-            console.log('Data received:', data); // Prikaz podataka
-            setRadnici(data);
-        } else {
-            throw new Error('Received content type is not JSON: ' + contentType);
-        }
+      const response = await fetch('https://paulovnija.site/api/v1/Radnik');
+      if (!response.ok) throw new Error('Network response was not ok');
+      const data = await response.json();
+      console.log('Data received:', data);
+      setRadnici(data);
     } catch (error) {
-        console.error('There was a problem with the fetch operation:', error);
+      console.error('There was a problem with the fetch operation:', error);
     }
-};
+  };
 
   const dodajRadnika = async () => {
     const newRadnik = { ime, prezime, godine: parseInt(godine), pozicija, plata: parseFloat(plata) };
-    await fetch('https://leki23-001-site1.atempurl.com/api/Radnik/Post', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(newRadnik),
-    });
-    fetchRadnici();
-    resetForm();
+    try {
+      const response = await fetch('https://paulovnija.site/api/v1/Radnik', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newRadnik),
+      });
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      fetchRadnici();
+      resetForm();
+    } catch (error) {
+      console.error('Failed to add worker:', error);
+    }
   };
 
   const obrisiRadnika = async (id) => {
-    await fetch(`https://leki23-001-site1.atempurl.com/api/Radnik/Delete/${id}`, {
-      method: 'DELETE',
-    });
-    fetchRadnici();
+    if (!id) {
+      console.error('Invalid ID:', id);
+      return;
+    }
+    try {
+      const response = await fetch(`https://paulovnija.site/api/v1/Radnik/${id}`, {
+        method: 'DELETE',
+      });
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      fetchRadnici();
+    } catch (error) {
+      console.error('Failed to delete worker:', error);
+    }
   };
 
   const azurirajRadnika = async () => {
     const updatedRadnik = { ime, prezime, godine: parseInt(godine), pozicija, plata: parseFloat(plata) };
-    await fetch(`https://leki23-001-site1.atempurl.com/api/Radnik/Put/${selectedId}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(updatedRadnik),
-    });
-    fetchRadnici();
-    resetForm();
+    try {
+      const response = await fetch(`https://paulovnija.site/api/v1/Radnik/${selectedId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updatedRadnik),
+      });
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      fetchRadnici(); // Refresh the list after updating
+      resetForm();
+    } catch (error) {
+      console.error('Failed to update worker:', error);
+    }
   };
 
   const resetForm = () => {
@@ -114,7 +123,7 @@ function Radnici() {
           </tr>
         </thead>
         <tbody>
-          {radnici.map((radnik) => (
+          {radnici.filter(radnik => radnik.iD_Radnika).map((radnik) => (
             <tr key={radnik.iD_Radnika}>
               <td>{radnik.iD_Radnika}</td>
               <td>{radnik.ime}</td>

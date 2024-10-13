@@ -19,7 +19,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Azure.Core.dll">
-      <publishTime>07/09/2023 19:50:30</publishTime>
+      <publishTime>09/07/2023 19:50:30</publishTime>
     </File>
     <File Include="Azure.Identity.dll">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -40,28 +40,28 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Microsoft.Identity.Client.dll">
-      <publishTime>05/09/2023 20:25:28</publishTime>
+      <publishTime>09/05/2023 20:25:28</publishTime>
     </File>
     <File Include="Microsoft.Identity.Client.Extensions.Msal.dll">
-      <publishTime>05/09/2023 20:31:58</publishTime>
+      <publishTime>09/05/2023 20:31:58</publishTime>
     </File>
     <File Include="Microsoft.IdentityModel.Abstractions.dll">
-      <publishTime>01/12/2023 05:56:56</publishTime>
+      <publishTime>12/01/2023 05:56:56</publishTime>
     </File>
     <File Include="Microsoft.IdentityModel.JsonWebTokens.dll">
-      <publishTime>01/12/2023 05:34:00</publishTime>
+      <publishTime>12/01/2023 05:34:00</publishTime>
     </File>
     <File Include="Microsoft.IdentityModel.Logging.dll">
-      <publishTime>01/12/2023 05:35:22</publishTime>
+      <publishTime>12/01/2023 05:35:22</publishTime>
     </File>
     <File Include="Microsoft.IdentityModel.Protocols.dll">
-      <publishTime>01/12/2023 05:37:28</publishTime>
+      <publishTime>12/01/2023 05:37:28</publishTime>
     </File>
     <File Include="Microsoft.IdentityModel.Protocols.OpenIdConnect.dll">
-      <publishTime>01/12/2023 05:48:08</publishTime>
+      <publishTime>12/01/2023 05:48:08</publishTime>
     </File>
     <File Include="Microsoft.IdentityModel.Tokens.dll">
-      <publishTime>01/12/2023 05:41:50</publishTime>
+      <publishTime>12/01/2023 05:41:50</publishTime>
     </File>
     <File Include="Microsoft.SqlServer.Server.dll">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -76,16 +76,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll">
-      <publishTime>11/08/2023 20:56:28</publishTime>
+      <publishTime>08/11/2023 20:56:28</publishTime>
     </File>
     <File Include="runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll">
-      <publishTime>11/08/2023 20:56:28</publishTime>
+      <publishTime>08/11/2023 20:56:28</publishTime>
     </File>
     <File Include="runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll">
-      <publishTime>11/08/2023 20:56:18</publishTime>
+      <publishTime>08/11/2023 20:56:18</publishTime>
     </File>
     <File Include="runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll">
-      <publishTime>11/08/2023 20:56:18</publishTime>
+      <publishTime>08/11/2023 20:56:18</publishTime>
     </File>
     <File Include="runtimes/win/lib/net6.0/Microsoft.Data.SqlClient.dll">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -112,10 +112,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="System.IdentityModel.Tokens.Jwt.dll">
-      <publishTime>01/12/2023 05:31:48</publishTime>
+      <publishTime>12/01/2023 05:31:48</publishTime>
     </File>
     <File Include="System.Memory.Data.dll">
-      <publishTime>08/04/2021 18:45:54</publishTime>
+      <publishTime>04/08/2021 18:45:54</publishTime>
     </File>
     <File Include="System.Runtime.Caching.dll">
       <publishTime>01/01/0001 00:00:00</publishTime>

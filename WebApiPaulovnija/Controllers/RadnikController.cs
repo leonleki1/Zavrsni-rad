@@ -1,89 +1,148 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using WebApiPaulovnija.Controllers.Models;
-using WebApiPaulovnija.Data;
-using WebApiPaulovnija.DTO;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using WebApiPaulovnija.DTO;
+using WebApiPaulovnija.Models;
 
 namespace WebApiPaulovnija.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     public class RadnikController : ControllerBase
     {
-        private readonly Paulovnijacontext _context;
+        private readonly PaulovnijaContext _context;
         private readonly IMapper _mapper;
 
-        public RadnikController(Paulovnijacontext context, IMapper mapper)
+        public RadnikController(PaulovnijaContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
         }
 
+        // GET api/v1/radnik
         [HttpGet]
-        public IActionResult GetAll()
+        public async Task<ActionResult<List<RadnikDTO>>> Get()
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(new { poruka = ModelState });
+            }
+
             try
             {
-                var radnici = _context.Radnici.ToList();
-                var radniciDto = _mapper.Map<List<RadnikDto>>(radnici);
-                return Ok(radniciDto);
+                var radnici = await _context.Radnici.ToListAsync();
+                return Ok(_mapper.Map<List<RadnikDTO>>(radnici));
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(new { poruka = ex.Message });
             }
         }
 
+        // GET api/v1/radnik/{id}
         [HttpGet("{id:int}")]
-        public IActionResult GetById(int id)
+        public async Task<ActionResult<RadnikDTO>> GetById(int id)
         {
-            var radnik = _context.Radnici.Find(id);
-            if (radnik == null)
+            if (!ModelState.IsValid)
             {
-                return NotFound();
+                return BadRequest(new { poruka = ModelState });
             }
-            var radnikDto = _mapper.Map<RadnikDto>(radnik);
-            return Ok(radnikDto);
+
+            try
+            {
+                var radnik = await _context.Radnici.FindAsync(id);
+                if (radnik == null)
+                {
+                    return NotFound(new { poruka = "Radnik ne postoji u bazi" });
+                }
+                return Ok(_mapper.Map<RadnikDTO>(radnik));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { poruka = ex.Message });
+            }
         }
 
+        // POST api/v1/radnik
         [HttpPost]
-        public IActionResult Create(KreirajRadnikaDTO createRadnikDto)
+        public async Task<IActionResult> Post(KreirajRadnikaDTO dto)
         {
-            var radnik = _mapper.Map<Radnik>(createRadnikDto);
-            _context.Radnici.Add(radnik);
-            _context.SaveChanges();
-            var radnikDto = _mapper.Map<RadnikDto>(radnik);
-            return StatusCode(StatusCodes.Status201Created, radnikDto);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(new { poruka = ModelState });
+            }
+
+            try
+            {
+                var radnik = _mapper.Map<Radnik>(dto);
+                await _context.Radnici.AddAsync(radnik);
+                await _context.SaveChangesAsync();
+                return StatusCode(StatusCodes.Status201Created, _mapper.Map<RadnikDTO>(radnik));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { poruka = ex.Message });
+            }
         }
 
+        // PUT api/v1/radnik/{id}
         [HttpPut("{id:int}")]
-        public IActionResult Update(int id, AzurirajRadnikaDTO updatedRadnikDto)
+        public async Task<IActionResult> Put(int id, AzurirajRadnikaDTO dto)
         {
-            var radnik = _context.Radnici.Find(id);
-            if (radnik == null)
+            if (!ModelState.IsValid)
             {
-                return NotFound();
+                return BadRequest(new { poruka = ModelState });
             }
 
-            _mapper.Map(updatedRadnikDto, radnik);
-            _context.SaveChanges();
-            var radnikDto = _mapper.Map<RadnikDto>(radnik);
-            return Ok(radnikDto);
+            try
+            {
+                var radnik = await _context.Radnici.FindAsync(id);
+                if (radnik == null)
+                {
+                    return NotFound(new { poruka = "Radnik ne postoji u bazi" });
+                }
+
+                _mapper.Map(dto, radnik);
+                _context.Radnici.Update(radnik);
+                await _context.SaveChangesAsync();
+                return Ok(new { poruka = "Uspješno promijenjeno" });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { poruka = ex.Message });
+            }
         }
 
+        // DELETE api/v1/radnik/{id}
         [HttpDelete("{id:int}")]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            var radnik = _context.Radnici.Find(id);
-            if (radnik == null)
+            if (!ModelState.IsValid)
             {
-                return NotFound();
+                return BadRequest(new { poruka = ModelState });
             }
 
-            _context.Radnici.Remove(radnik);
-            _context.SaveChanges();
-            return NoContent();
+            try
+            {
+                var radnik = await _context.Radnici.FindAsync(id);
+                if (radnik == null)
+                {
+                    return NotFound(new { poruka = "Radnik ne postoji u bazi" });
+                }
+
+                _context.Radnici.Remove(radnik);
+                await _context.SaveChangesAsync();
+                return Ok(new { poruka = "Uspješno obrisano" });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { poruka = ex.Message });
+            }
         }
     }
 }

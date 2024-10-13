@@ -1,45 +1,47 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using WebApiPaulovnija.Controllers.Models;
-using WebApiPaulovnija.Data;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using WebApiPaulovnija.Models;
 
-namespace WebApiPaulovnija.Service
+public class RadnikService : IRadnikService
 {
-    public class RadnikService : IRadnikService
+    private readonly PaulovnijaContext _context;
+
+    public RadnikService(PaulovnijaContext context)
     {
-        private readonly Paulovnijacontext _context;
+        _context = context;
+    }
 
-        public RadnikService(Paulovnijacontext context)
-        {
-            _context = context;
-        }
+    public async Task<Radnik> CreateRadnikAsync(Radnik radnik)
+    {
+        _context.Radnici.Add(radnik);
+        await _context.SaveChangesAsync();
+        return radnik;
+    }
 
-        public List<Radnik> GetAllRadnici()
-        {
-            return _context.Radnici.ToList();
-        }
+    public async Task<List<Radnik>> GetAllRadniciAsync()
+    {
+        return await _context.Radnici.ToListAsync();
+    }
 
-        public Radnik GetRadnikById(int id)
-        {
-            return _context.Radnici.Find(id);
-        }
+    public async Task<Radnik> GetRadnikByIdAsync(int id)
+    {
+        return await _context.Radnici.FindAsync(id);
+    }
 
-        public void CreateRadnik(Radnik radnik)
-        {
-            _context.Radnici.Add(radnik);
-            _context.SaveChanges();
-        }
+    public async Task<bool> UpdateRadnikAsync(Radnik radnik)
+    {
+        _context.Radnici.Update(radnik);
+        return await _context.SaveChangesAsync() > 0;
+    }
 
-        public void UpdateRadnik(Radnik radnik)
-        {
-            _context.Radnici.Update(radnik);
-            _context.SaveChanges();
-        }
+    public async Task<bool> DeleteRadnikAsync(int id)
+    {
+        var radnik = await _context.Radnici.FindAsync(id);
+        if (radnik == null)
+            return false;
 
-        public void DeleteRadnik(Radnik radnik)
-        {
-            _context.Radnici.Remove(radnik);
-            _context.SaveChanges();
-        }
+        _context.Radnici.Remove(radnik);
+        return await _context.SaveChangesAsync() > 0;
     }
 }

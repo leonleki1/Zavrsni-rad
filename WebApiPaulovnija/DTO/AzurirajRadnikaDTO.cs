@@ -1,4 +1,6 @@
-﻿namespace WebApiPaulovnija.DTO
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace WebApiPaulovnija.DTO
 {
     public class AzurirajRadnikaDTO
     {

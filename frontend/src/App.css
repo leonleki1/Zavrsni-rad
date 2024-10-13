@@ -130,6 +130,8 @@ tr:hover {
   background-color: rgba(255, 255, 0, 0.2); /* Istakni red pri hoveru */
   color: black; /* Tamni tekst pri hoveru */
 }
+
+/* Stilovi za gumbove */
 .home-button {
   font-size: 1.5rem; /* Veličina ikone kuće */
   color: white; /* Boja ikone */
@@ -140,11 +142,11 @@ tr:hover {
 .home-button:hover {
   color: #ffcc00; /* Boja pri hoveru */
 }
+
 /* Stilovi za formu */
 form {
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
 }
 
 input {
@@ -152,6 +154,8 @@ input {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Stilovi za gumbe u formi */
@@ -173,17 +177,21 @@ button:hover {
 /* Akcije gumba u tablici */
 td button {
   background-color: blue; /* Boja gumba za ažuriranje */
-  margin-aright: 5px; /* Razmak između gumba */
+  margin-right: 11px; /* Razmak između gumba */
 }
 
 td button:last-child {
   background-color: red; /* Boja gumba za brisanje */
 }
+
 /* Stilovi za ikonu Home */
 .home-icon {
   display: flex;
   align-items: center;
   margin-right: 20px; /* Razmak između ikone i drugih elemenata */
+  font-size: 24px; /* Veličina simbola */
+  color: white; /* Boja simbola */
+  text-decoration: none;
 }
 
 .home-icon-image {
@@ -196,16 +204,8 @@ td button:last-child {
 .home-icon-image:hover {
   transform: scale(1.1); /* Povećanje ikone pri hoveru */
 }
-/* Stilovi za simbol Home */
-.home-icon {
-  display: flex;
-  align-items: center;
-  margin-right: 20px; /* Razmak između ikone i drugih elemenata */
-  font-size: 24px; /* Veličina simbola */
-  color: white; /* Boja simbola */
-  text-decoration: none;
-}
 
+/* Stilovi za simbol Home */
 .home-icon-symbol {
   display: inline-block;
   transition: transform 0.3s ease-in-out; /* Glatka animacija prilikom hovera */
@@ -214,4 +214,3 @@ td button:last-child {
 .home-icon-symbol:hover {
   transform: scale(1.2); /* Povećanje simbola pri hoveru */
 }
-

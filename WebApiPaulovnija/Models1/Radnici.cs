@@ -1,10 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using WebApiPaulovnija.Models;
 
 namespace WebApiPaulovnija.Controllers.Models
 {
-    public class Radnici
+    public class RadniciList 
     {
-        [Key]
-        public int ID_Radnika { get; set; }
+        public List<Radnik> ListaRadnika { get; set; } = new List<Radnik>();
     }
 }
