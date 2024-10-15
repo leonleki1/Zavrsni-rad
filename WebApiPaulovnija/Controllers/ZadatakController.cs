@@ -25,6 +25,10 @@ namespace WebApiPaulovnija.Controllers
             _logger = logger;
         }
 
+        /// <summary>
+        /// Vraća sve zadatke iz baze podataka.
+        /// </summary>
+        /// <returns>Lista zadataka.</returns>
         [HttpGet]
         public async Task<ActionResult<List<ZadatakDTO>>> Get()
         {
@@ -40,6 +44,11 @@ namespace WebApiPaulovnija.Controllers
             }
         }
 
+        /// <summary>
+        /// Vraća zadatak po ID-u.
+        /// </summary>
+        /// <param name="id">ID zadatka.</param>
+        /// <returns>Zadatak sa traženim ID-em.</returns>
         [HttpGet("{id:int}")]
         public async Task<ActionResult<ZadatakDTO>> GetById(int id)
         {
@@ -59,6 +68,11 @@ namespace WebApiPaulovnija.Controllers
             }
         }
 
+        /// <summary>
+        /// Dodaje novi zadatak u bazu podataka.
+        /// </summary>
+        /// <param name="dto">DTO objekt za novi zadatak.</param>
+        /// <returns>Status rezultata unosa.</returns>
         [HttpPost]
         public async Task<IActionResult> Post(KreirajZadatakDTO dto)
         {
@@ -67,22 +81,27 @@ namespace WebApiPaulovnija.Controllers
             try
             {
                 var zadatak = await _zadatakService.CreateZadatakAsync(dto);
-                // Ispravka: Koristi ID_Zadatka umesto ID_Radnika
                 return CreatedAtAction(nameof(GetById), new { id = zadatak.ID_Zadatka }, zadatak);
             }
-            catch (DbUpdateException ex) // Specifično za greške u bazi
+            catch (DbUpdateException ex)
             {
-                var innerException = ex.InnerException?.Message ?? ex.Message; // Uzimamo unutrašnju grešku, ako postoji
+                var innerException = ex.InnerException?.Message ?? ex.Message;
                 _logger.LogError(ex, "Greška prilikom kreiranja zadatka.");
                 return StatusCode(StatusCodes.Status500InternalServerError, new { poruka = "Greška na serveru prilikom kreiranja zadatka.", detalji = innerException });
             }
-            catch (Exception ex) // Ostale greške
+            catch (Exception ex)
             {
                 _logger.LogError(ex, "Greška prilikom kreiranja zadatka.");
                 return StatusCode(StatusCodes.Status500InternalServerError, new { poruka = "Greška na serveru prilikom kreiranja zadatka.", detalji = ex.Message });
             }
         }
 
+        /// <summary>
+        /// Ažurira postojeći zadatak u bazi podataka.
+        /// </summary>
+        /// <param name="id">ID zadatka koji se ažurira.</param>
+        /// <param name="dto">DTO objekt sa novim podacima zadatka.</param>
+        /// <returns>Status ažuriranja.</returns>
         [HttpPut("{id:int}")]
         public async Task<IActionResult> Put(int id, AzurirajZadatakDTO dto)
         {
@@ -91,17 +110,13 @@ namespace WebApiPaulovnija.Controllers
 
             try
             {
-                // Proverite da li zadatak postoji pre ažuriranja
                 var existingZadatak = await _zadatakService.GetZadatakByIdAsync(id);
                 if (existingZadatak == null)
                 {
                     return NotFound(new { poruka = "Zadatak sa datim ID-em nije pronađen." });
                 }
 
-                // Postavite ID zadatka u DTO
                 dto.ID_Zadatka = id;
-
-                // Ažurirajte zadatak
                 var result = await _zadatakService.UpdateZadatakAsync(dto);
                 if (!result)
                 {
@@ -117,7 +132,11 @@ namespace WebApiPaulovnija.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Briše zadatak iz baze podataka.
+        /// </summary>
+        /// <param name="id">ID zadatka koji se briše.</param>
+        /// <returns>Status brisanja.</returns>
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> Delete(int id)
         {

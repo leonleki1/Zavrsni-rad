@@ -24,7 +24,10 @@ namespace WebApiPaulovnija.Controllers
             _mapper = mapper;
         }
 
-        // GET api/v1/radnik
+        /// <summary>
+        /// Vraća sve radnike iz baze podataka.
+        /// </summary>
+        /// <returns>Lista radnika u formatu RadnikDTO.</returns>
         [HttpGet]
         public async Task<ActionResult<List<RadnikDTO>>> Get()
         {
@@ -44,7 +47,11 @@ namespace WebApiPaulovnija.Controllers
             }
         }
 
-        // GET api/v1/radnik/{id}
+        /// <summary>
+        /// Vraća radnika po ID-u.
+        /// </summary>
+        /// <param name="id">ID radnika.</param>
+        /// <returns>Radnik sa traženim ID-em u formatu RadnikDTO.</returns>
         [HttpGet("{id:int}")]
         public async Task<ActionResult<RadnikDTO>> GetById(int id)
         {
@@ -68,7 +75,11 @@ namespace WebApiPaulovnija.Controllers
             }
         }
 
-        // POST api/v1/radnik
+        /// <summary>
+        /// Dodaje novog radnika u bazu podataka.
+        /// </summary>
+        /// <param name="dto">DTO objekt radnika koji se dodaje.</param>
+        /// <returns>Status rezultata unosa.</returns>
         [HttpPost]
         public async Task<IActionResult> Post(KreirajRadnikaDTO dto)
         {
@@ -90,7 +101,12 @@ namespace WebApiPaulovnija.Controllers
             }
         }
 
-        // PUT api/v1/radnik/{id}
+        /// <summary>
+        /// Ažurira radnika u bazi podataka.
+        /// </summary>
+        /// <param name="id">ID radnika koji se ažurira.</param>
+        /// <param name="dto">DTO objekt sa novim podacima radnika.</param>
+        /// <returns>Status ažuriranja.</returns>
         [HttpPut("{id:int}")]
         public async Task<IActionResult> Put(int id, AzurirajRadnikaDTO dto)
         {
@@ -118,7 +134,11 @@ namespace WebApiPaulovnija.Controllers
             }
         }
 
-        // DELETE api/v1/radnik/{id}
+        /// <summary>
+        /// Briše radnika iz baze podataka.
+        /// </summary>
+        /// <param name="id">ID radnika koji se briše.</param>
+        /// <returns>Status brisanja.</returns>
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> Delete(int id)
         {

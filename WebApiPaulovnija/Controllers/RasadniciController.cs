@@ -17,6 +17,10 @@ namespace WebApiPaulovnija.Controllers
             _rasadnikService = rasadnikService;
         }
 
+        /// <summary>
+        /// Vraća sve rasadnike iz baze podataka.
+        /// </summary>
+        /// <returns>Lista rasadnika.</returns>
         [HttpGet]
         public async Task<IActionResult> GetRasadnici()
         {
@@ -31,6 +35,11 @@ namespace WebApiPaulovnija.Controllers
             }
         }
 
+        /// <summary>
+        /// Vraća rasadnik po ID-u.
+        /// </summary>
+        /// <param name="id">ID rasadnika.</param>
+        /// <returns>Rasadnik sa traženim ID-em.</returns>
         [HttpGet("{id}")]
         public async Task<IActionResult> GetRasadnik(int id)
         {
@@ -39,6 +48,11 @@ namespace WebApiPaulovnija.Controllers
             return Ok(rasadnik);
         }
 
+        /// <summary>
+        /// Dodaje novog rasadnika u bazu podataka.
+        /// </summary>
+        /// <param name="rasadnikDTO">DTO objekt rasadnika koji se dodaje.</param>
+        /// <returns>Status rezultata unosa.</returns>
         [HttpPost]
         public async Task<IActionResult> CreateRasadnik([FromBody] KreirajRasadnikDTO rasadnikDTO)
         {
@@ -47,6 +61,12 @@ namespace WebApiPaulovnija.Controllers
             return CreatedAtAction(nameof(GetRasadnik), new { id = createdRasadnik.ID_Rasadnika }, createdRasadnik);
         }
 
+        /// <summary>
+        /// Ažurira postojeći rasadnik u bazi podataka.
+        /// </summary>
+        /// <param name="id">ID rasadnika koji se ažurira.</param>
+        /// <param name="rasadnikDTO">DTO objekt sa novim podacima rasadnika.</param>
+        /// <returns>Status ažuriranja.</returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateRasadnik(int id, [FromBody] AzurirajRasadnikDTO rasadnikDTO)
         {
@@ -57,6 +77,11 @@ namespace WebApiPaulovnija.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Briše rasadnik iz baze podataka.
+        /// </summary>
+        /// <param name="id">ID rasadnika koji se briše.</param>
+        /// <returns>Status brisanja.</returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteRasadnik(int id)
         {
