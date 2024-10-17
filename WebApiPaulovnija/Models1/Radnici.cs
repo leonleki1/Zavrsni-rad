@@ -3,8 +3,14 @@ using WebApiPaulovnija.Models;
 
 namespace WebApiPaulovnija.Controllers.Models
 {
-    public class RadniciList 
+    /// <summary>
+    /// Klasa koja predstavlja listu radnika.
+    /// </summary>
+    public class RadniciList
     {
+        /// <summary>
+        /// Lista radnika.
+        /// </summary>
         public List<Radnik> ListaRadnika { get; set; } = new List<Radnik>();
     }
 }

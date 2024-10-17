@@ -1,51 +1,68 @@
-﻿    using WebApiPaulovnija.Mapping;
-    using WebApiPaulovnija.Services;
-    using Microsoft.EntityFrameworkCore;
+﻿using WebApiPaulovnija.Mapping;
+using WebApiPaulovnija.Services;
+using Microsoft.EntityFrameworkCore;
 
-    var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(args);
 
-    builder.Services.AddControllers();
+// Dodavanje kontrolera za API
+builder.Services.AddControllers();
 
-    builder.Services.AddEndpointsApiExplorer();
-    builder.Services.AddSwaggerGen();
+// Konfiguracija Swagger-a
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
-    builder.Services.AddDbContext<PaulovnijaContext>(opcije =>
-    {
-        opcije.UseSqlServer(builder.Configuration.GetConnectionString("PaulovnijaContext"));
-    });
+// Konfiguracija konteksta baze podataka s SQL Serverom
+builder.Services.AddDbContext<PaulovnijaContext>(opcije =>
+{
+    opcije.UseSqlServer(builder.Configuration.GetConnectionString("PaulovnijaContext"));
+});
 
-    builder.Services.AddCors(opcije =>
-    {
-        opcije.AddPolicy("CorsPolicy",
-            builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()
-        );
-    });
+// Konfiguracija CORS-a
+builder.Services.AddCors(opcije =>
+{
+    opcije.AddPolicy("CorsPolicy",
+        builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()
+    );
+});
 
-    builder.Services.AddAutoMapper(typeof(MappingProfile));
+// Dodavanje AutoMapper-a za mapiranje između modela i DTO-a
+builder.Services.AddAutoMapper(typeof(MappingProfile));
 
-    builder.Services.AddScoped<IRadnikService, RadnikService>();
-    builder.Services.AddScoped<IRasadnikService, RasadnikService>();
-    builder.Services.AddScoped<IStrojService, StrojService>();
-    builder.Services.AddScoped<ISadnicaService, SadnicaService>();
-    builder.Services.AddScoped<IZadatakService, ZadatakService>();
+// Registracija servisa
+builder.Services.AddScoped<IRadnikService, IRadnikService>();
+builder.Services.AddScoped<IRasadnikService, RasadnikService>();
+builder.Services.AddScoped<IStrojService, StrojService>();
+builder.Services.AddScoped<ISadnicaService, SadnicaService>();
+builder.Services.AddScoped<IZadatakService, ZadatakService>();
 
-    var app = builder.Build();
+var app = builder.Build();
 
-    app.UseSwagger();
-    app.UseSwaggerUI(opcije =>
-    {
-        opcije.ConfigObject.AdditionalItems.Add("requestSnippetsEnabled", true);
-        opcije.EnableTryItOutByDefault();
-    });
+// Konfiguracija Swagger UI
+app.UseSwagger();
+app.UseSwaggerUI(opcije =>
+{
+    opcije.ConfigObject.AdditionalItems.Add("requestSnippetsEnabled", true);
+    opcije.EnableTryItOutByDefault();
+});
 
-    app.UseHttpsRedirection();
-    app.UseAuthorization();
-    app.UseCors("CorsPolicy");
+// Postavljanje HTTPS preusmjeravanja
+app.UseHttpsRedirection();
 
-    app.MapControllers();
+// Omogućavanje autorizacije
+app.UseAuthorization();
 
-    app.UseStaticFiles();
-    app.UseDefaultFiles();
-    app.MapFallbackToFile("index.html");
+// Primjena CORS politike
+app.UseCors("CorsPolicy");
 
-    app.Run();
+// Mapa kontrolera
+app.MapControllers();
+
+// Omogućavanje statičkih datoteka
+app.UseStaticFiles();
+app.UseDefaultFiles();
+
+// Postavljanje fallback datoteke za SPA
+app.MapFallbackToFile("index.html");
+
+// Pokretanje aplikacije
+app.Run();

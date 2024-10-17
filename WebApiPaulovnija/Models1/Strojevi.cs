@@ -1,13 +1,50 @@
 ﻿using WebApiPaulovnija.Models;
 
-public class Stroj
+namespace WebApiPaulovnija.Models
 {
-    public int ID_Stroja { get; set; }
-    public string Marka { get; set; }
-    public string Model { get; set; }
-    public int Godiste { get; set; }
-    public string Tip { get; set; }
-    public decimal Kapacitet_rezervoara { get; set; }
-    public int ID_Radnika { get; set; } 
-    public Radnik Radnik { get; set; } 
+    /// <summary>
+    /// Klasa koja predstavlja stroj.
+    /// </summary>
+    public class Stroj
+    {
+        /// <summary>
+        /// Jedinstveni identifikator stroja.
+        /// </summary>
+        public int ID_Stroja { get; set; }
+
+        /// <summary>
+        /// Marka stroja.
+        /// </summary>
+        public string Marka { get; set; }
+
+        /// <summary>
+        /// Model stroja.
+        /// </summary>
+        public string Model { get; set; }
+
+        /// <summary>
+        /// Godina proizvodnje stroja.
+        /// </summary>
+        public int Godiste { get; set; }
+
+        /// <summary>
+        /// Tip stroja.
+        /// </summary>
+        public string Tip { get; set; }
+
+        /// <summary>
+        /// Kapacitet rezervoara stroja u litrima.
+        /// </summary>
+        public decimal Kapacitet_rezervoara { get; set; }
+
+        /// <summary>
+        /// Jedinstveni identifikator radnika koji upravlja strojem.
+        /// </summary>
+        public int ID_Radnika { get; set; }
+
+        /// <summary>
+        /// Referenca na radnika koji upravlja strojem.
+        /// </summary>
+        public Radnik Radnik { get; set; }
+    }
 }
