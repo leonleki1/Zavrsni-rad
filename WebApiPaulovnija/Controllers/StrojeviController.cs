@@ -22,6 +22,10 @@ namespace WebApiPaulovnija.Controllers
             _mapper = mapper;
         }
 
+        /// <summary>
+        /// Vraća sve strojeve iz baze podataka.
+        /// </summary>
+        /// <returns>Lista strojeva.</returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<StrojDTO>>> GetAll()
         {
@@ -36,6 +40,11 @@ namespace WebApiPaulovnija.Controllers
             }
         }
 
+        /// <summary>
+        /// Vraća stroj po ID-u.
+        /// </summary>
+        /// <param name="id">ID stroja.</param>
+        /// <returns>Stroj sa traženim ID-em.</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<StrojDTO>> GetById(int id)
         {
@@ -53,6 +62,11 @@ namespace WebApiPaulovnija.Controllers
             }
         }
 
+        /// <summary>
+        /// Dodaje novi stroj u bazu podataka.
+        /// </summary>
+        /// <param name="kreirajStrojDTO">DTO objekt za novi stroj.</param>
+        /// <returns>Status rezultata unosa.</returns>
         [HttpPost]
         public async Task<ActionResult<StrojDTO>> Create([FromBody] KreirajStrojDTO kreirajStrojDTO)
         {
@@ -67,7 +81,6 @@ namespace WebApiPaulovnija.Controllers
             }
             catch (DbUpdateException ex)
             {
-                // Uključujemo unutarnju grešku u odgovor
                 var innerExceptionMessage = ex.InnerException != null ? ex.InnerException.Message : "Nema dodatnih informacija.";
                 return StatusCode(500, $"Greška prilikom dodavanja stroja: {ex.Message}. Inner exception: {innerExceptionMessage}");
             }
@@ -77,7 +90,12 @@ namespace WebApiPaulovnija.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Ažurira postojeći stroj u bazi podataka.
+        /// </summary>
+        /// <param name="id">ID stroja koji se ažurira.</param>
+        /// <param name="azurirajStrojDTO">DTO objekt sa novim podacima stroja.</param>
+        /// <returns>Status ažuriranja.</returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, [FromBody] AzurirajStrojDTO azurirajStrojDTO)
         {
@@ -104,6 +122,11 @@ namespace WebApiPaulovnija.Controllers
             }
         }
 
+        /// <summary>
+        /// Briše stroj iz baze podataka.
+        /// </summary>
+        /// <param name="id">ID stroja koji se briše.</param>
+        /// <returns>Status brisanja.</returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {

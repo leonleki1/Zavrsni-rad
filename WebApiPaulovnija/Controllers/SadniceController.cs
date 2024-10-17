@@ -16,6 +16,10 @@ namespace WebApiPaulovnija.Controllers
             _sadnicaService = sadnicaService;
         }
 
+        /// <summary>
+        /// Vraća sve sadnice iz baze podataka.
+        /// </summary>
+        /// <returns>Lista sadnica.</returns>
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -23,6 +27,11 @@ namespace WebApiPaulovnija.Controllers
             return Ok(sadnice);
         }
 
+        /// <summary>
+        /// Vraća sadnicu po ID-u.
+        /// </summary>
+        /// <param name="id">ID sadnice.</param>
+        /// <returns>Sadnica sa traženim ID-em.</returns>
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
@@ -31,6 +40,11 @@ namespace WebApiPaulovnija.Controllers
             return Ok(sadnica);
         }
 
+        /// <summary>
+        /// Dodaje novu sadnicu u bazu podataka.
+        /// </summary>
+        /// <param name="sadnicaDTO">DTO objekt sadnice koji se dodaje.</param>
+        /// <returns>Status rezultata unosa.</returns>
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] KreirajSadnicuDTO sadnicaDTO)
         {
@@ -38,6 +52,12 @@ namespace WebApiPaulovnija.Controllers
             return CreatedAtAction(nameof(GetById), new { id = createdSadnica.ID_Sadnice }, createdSadnica);
         }
 
+        /// <summary>
+        /// Ažurira postojeću sadnicu u bazi podataka.
+        /// </summary>
+        /// <param name="id">ID sadnice koji se ažurira.</param>
+        /// <param name="sadnicaDTO">DTO objekt sa novim podacima sadnice.</param>
+        /// <returns>Status ažuriranja.</returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, [FromBody] AzurirajSadnicuDTO sadnicaDTO)
         {
@@ -47,6 +67,11 @@ namespace WebApiPaulovnija.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Briše sadnicu iz baze podataka.
+        /// </summary>
+        /// <param name="id">ID sadnice koji se briše.</param>
+        /// <returns>Status brisanja.</returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
