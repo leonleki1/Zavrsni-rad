@@ -2,119 +2,132 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using WebApiPaulovnija.DTO; 
 using WebApiPaulovnija.Models;
+
 using WebApiPaulovnija.Services;
 
-/// <summary>
-/// Servisna klasa za upravljanje rasadnicima (Rasadnik).
-/// </summary>
-public class RasadnikService : IRasadnikService
+namespace WebApiPaulovnija.Service
 {
-    private readonly PaulovnijaContext _context;
-
     /// <summary>
-    /// Inicijalizira novu instancu <see cref="RasadnikService"/> klase.
+    /// Implementacija servisa za upravljanje radnicima.
     /// </summary>
-    /// <param name="context">Kontext baze podataka koji se koristi za interakciju s bazom podataka.</param>
-    public RasadnikService(PaulovnijaContext context)
+    public class RadnikService : IRadnikService
     {
-        _context = context;
-    }
+        private readonly PaulovnijaContext _context;
 
-    /// <summary>
-    /// Dohvaća sve rasadnike kao listu <see cref="RasadnikDTO"/>.
-    /// </summary>
-    /// <returns>Task koji predstavlja asinkronu operaciju. Rezultat taska sadrži kolekciju <see cref="RasadnikDTO"/>.</returns>
-    public async Task<IEnumerable<RasadnikDTO>> GetAllRasadniciAsync()
-    {
-        return await _context.Rasadnik
-            .Select(r => new RasadnikDTO
-            {
-                ID_Rasadnika = r.ID_Rasadnika,
-                Naziv = r.Naziv,
-                Lokacija = r.Lokacija,
-                // Dodajte ostala svojstva prema potrebama
-            }).ToListAsync();
-    }
-
-    /// <summary>
-    /// Dohvaća rasadnik prema njegovom ID-u.
-    /// </summary>
-    /// <param name="id">ID rasadnika koji treba dohvatiti.</param>
-    /// <returns>Task koji predstavlja asinkronu operaciju. Rezultat taska sadrži <see cref="RasadnikDTO"/> za određeni rasadnik, ili null ako nije pronađen.</returns>
-    public async Task<RasadnikDTO> GetRasadnikByIdAsync(int id)
-    {
-        var rasadnik = await _context.Rasadnik.FindAsync(id);
-        if (rasadnik == null) return null;
-
-        return new RasadnikDTO
+        /// <summary>
+        /// Inicijalizira novu instancu <see cref="RadnikService"/> klase.
+        /// </summary>
+        /// <param name="context">Kontekst baze podataka za pristup podacima o radnicima.</param>
+        public RadnikService(PaulovnijaContext context)
         {
-            ID_Rasadnika = rasadnik.ID_Rasadnika,
-            Naziv = rasadnik.Naziv,
-            Lokacija = rasadnik.Lokacija,
-            // Dodajte ostala svojstva prema potrebama
-        };
-    }
+            _context = context;
+        }
 
-    /// <summary>
-    /// Stvara novi rasadnik iz navedenog <see cref="KreirajRasadnikDTO"/>.
-    /// </summary>
-    /// <param name="rasadnikDTO">Podaci o novom rasadniku.</param>
-    /// <returns>Task koji predstavlja asinkronu operaciju. Rezultat taska sadrži novi stvoreni <see cref="RasadnikDTO"/>.</returns>
-    public async Task<RasadnikDTO> CreateRasadnikAsync(KreirajRasadnikDTO rasadnikDTO)
-    {
-        var rasadnik = new Rasadnik
+        /// <summary>
+        /// Vraća sve radnike iz baze podataka.
+        /// </summary>
+        /// <returns>Lista svih radnika.</returns>
+        public List<Radnik> GetAllRadnici()
         {
-            Naziv = rasadnikDTO.Naziv,
-            Lokacija = rasadnikDTO.Lokacija,
-            // Dodajte ostala svojstva prema potrebama
-        };
+            return _context.Radnici.ToList();
+        }
 
-        await _context.Rasadnik.AddAsync(rasadnik);
-        await _context.SaveChangesAsync();
-
-        return new RasadnikDTO
+        /// <summary>
+        /// Vraća radnika na temelju ID-a.
+        /// </summary>
+        /// <param name="id">ID radnika koji se želi pretražiti.</param>
+        /// <returns>Radnik ako je pronađen, inače null.</returns>
+        public Radnik GetRadnikById(int id)
         {
-            ID_Rasadnika = rasadnik.ID_Rasadnika,
-            Naziv = rasadnik.Naziv,
-            Lokacija = rasadnik.Lokacija,
-            // Dodajte ostala svojstva prema potrebama
-        };
-    }
+            return _context.Radnici.Find(id);
+        }
 
-    /// <summary>
-    /// Ažurira rasadnik na temelju navedenog <see cref="AzurirajRasadnikDTO"/>.
-    /// </summary>
-    /// <param name="rasadnikDTO">Podaci za ažuriranje rasadnika.</param>
-    /// <returns>Task koji predstavlja asinkronu operaciju. Rezultat taska je true ako je ažuriranje uspješno, inače false.</returns>
-    public async Task<bool> UpdateRasadnikAsync(AzurirajRasadnikDTO rasadnikDTO)
-    {
-        var rasadnik = await _context.Rasadnik.FindAsync(rasadnikDTO.ID_Rasadnika);
-        if (rasadnik == null) return false;
+        /// <summary>
+        /// Dodaje novog radnika u bazu podataka.
+        /// </summary>
+        /// <param name="radnik">Objekt radnika koji se dodaje.</param>
+        public void CreateRadnik(Radnik radnik)
+        {
+            _context.Radnici.Add(radnik);
+            _context.SaveChanges();
+        }
 
-        // Ažurirajte svojstva rasadnika
-        rasadnik.Naziv = rasadnikDTO.Naziv;
-        rasadnik.Lokacija = rasadnikDTO.Lokacija;
-        // Dodajte ostala svojstva prema potrebama
+        /// <summary>
+        /// Ažurira postojećeg radnika u bazi podataka.
+        /// </summary>
+        /// <param name="radnik">Objekt radnika koji sadrži ažurirane podatke.</param>
+        public void UpdateRadnik(Radnik radnik)
+        {
+            _context.Radnici.Update(radnik);
+            _context.SaveChanges();
+        }
 
-        _context.Rasadnik.Update(rasadnik);
-        await _context.SaveChangesAsync();
-        return true;
-    }
+        /// <summary>
+        /// Briše radnika iz baze podataka.
+        /// </summary>
+        /// <param name="radnik">Objekt radnika koji se briše.</param>
+        public void DeleteRadnik(Radnik radnik)
+        {
+            _context.Radnici.Remove(radnik);
+            _context.SaveChanges();
+        }
 
-    /// <summary>
-    /// Briše rasadnik prema njegovom ID-u.
-    /// </summary>
-    /// <param name="id">ID rasadnika koji treba izbrisati.</param>
-    /// <returns>Task koji predstavlja asinkronu operaciju. Rezultat taska je true ako je brisanje uspješno, inače false.</returns>
-    public async Task<bool> DeleteRasadnikAsync(int id)
-    {
-        var rasadnik = await _context.Rasadnik.FindAsync(id);
-        if (rasadnik == null) return false;
+        /// <summary>
+        /// Asinkrono dodaje novog radnika u bazu podataka.
+        /// </summary>
+        /// <param name="radnik">Objekt radnika koji se dodaje.</param>
+        /// <returns>Vraća asinkroni rezultat operacije dodavanja.</returns>
+        public async Task<Radnik> CreateRadnikAsync(Radnik radnik)
+        {
+            _context.Radnici.Add(radnik);
+            await _context.SaveChangesAsync();
+            return radnik;
+        }
 
-        _context.Rasadnik.Remove(rasadnik); // Ispravka ovdje
-        await _context.SaveChangesAsync();
-        return true;
+        /// <summary>
+        /// Asinkrono vraća sve radnike iz baze podataka.
+        /// </summary>
+        /// <returns>Lista svih radnika.</returns>
+        public async Task<List<Radnik>> GetAllRadniciAsync()
+        {
+            return await _context.Radnici.ToListAsync();
+        }
+
+        /// <summary>
+        /// Asinkrono vraća radnika na temelju ID-a.
+        /// </summary>
+        /// <param name="id">ID radnika koji se želi pretražiti.</param>
+        /// <returns>Radnik ako je pronađen, inače null.</returns>
+        public async Task<Radnik> GetRadnikByIdAsync(int id)
+        {
+            return await _context.Radnici.FindAsync(id);
+        }
+
+        /// <summary>
+        /// Asinkrono ažurira postojećeg radnika u bazi podataka.
+        /// </summary>
+        /// <param name="radnik">Objekt radnika koji sadrži ažurirane podatke.</param>
+        /// <returns>True ako je ažuriranje uspješno, inače false.</returns>
+        public async Task<bool> UpdateRadnikAsync(Radnik radnik)
+        {
+            _context.Radnici.Update(radnik);
+            return await _context.SaveChangesAsync() > 0;
+        }
+
+        /// <summary>
+        /// Asinkrono briše radnika iz baze podataka na temelju ID-a.
+        /// </summary>
+        /// <param name="id">ID radnika koji se briše.</param>
+        /// <returns>True ako je radnik uspješno obrisan, inače false.</returns>
+        public async Task<bool> DeleteRadnikAsync(int id)
+        {
+            var radnik = await _context.Radnici.FindAsync(id);
+            if (radnik == null)
+                return false;
+
+            _context.Radnici.Remove(radnik);
+            return await _context.SaveChangesAsync() > 0;
+        }
     }
 }

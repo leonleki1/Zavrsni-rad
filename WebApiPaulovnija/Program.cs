@@ -1,6 +1,7 @@
 ﻿using WebApiPaulovnija.Mapping;
 using WebApiPaulovnija.Services;
 using Microsoft.EntityFrameworkCore;
+using WebApiPaulovnija.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,7 +30,7 @@ builder.Services.AddCors(opcije =>
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 // Registracija servisa
-builder.Services.AddScoped<IRadnikService, IRadnikService>();
+builder.Services.AddScoped<IRadnikService, RadnikService>();
 builder.Services.AddScoped<IRasadnikService, RasadnikService>();
 builder.Services.AddScoped<IStrojService, StrojService>();
 builder.Services.AddScoped<ISadnicaService, SadnicaService>();
