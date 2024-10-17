@@ -1,0 +1,37 @@
+[33mcommit c080e078eab3153fba51ae541d05a3582d0a09e5[m
+Author: leonleki1 <168353792+leonleki1@users.noreply.github.com>
+Date:   Sun Oct 13 20:21:35 2024 +0200
+
+    Delete frontend directory
+
+frontend/.gitignore
+frontend/README.md
+frontend/eslint.config.js
+frontend/index.html
+frontend/public/Background.jpg
+frontend/public/favicon.ico
+frontend/public/tree.png
+frontend/public/vite.svg
+frontend/src/App.css
+frontend/src/App.jsx
+frontend/src/Home.jsx
+frontend/src/Kreator.css
+frontend/src/Kreator.jsx
+frontend/src/Radnici.jsx
+frontend/src/Rasadnik.jsx
+frontend/src/Sadnice.jsx
+frontend/src/Slike/Leon.jpg
+frontend/src/Strojevi.jsx
+frontend/src/Zadaci.jsx
+frontend/src/assets/react.svg
+frontend/src/index.css
+frontend/src/main.jsx
+frontend/vite.config.js
+frontend/wwwroot/assets/Leon-CWHxdPya.jpg
+frontend/wwwroot/assets/index-BGfbudG9.js
+frontend/wwwroot/assets/index-D3UPfb9z.css
+frontend/wwwroot/background.jpg
+frontend/wwwroot/favicon.ico
+frontend/wwwroot/index.html
+frontend/wwwroot/tree.png
+frontend/wwwroot/vite.svg

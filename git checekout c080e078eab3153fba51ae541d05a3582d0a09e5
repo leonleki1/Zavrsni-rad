@@ -1,0 +1,134 @@
+[33mcommit a3a5f977e77c5ab751f1b6d59d83887cdb3ebf0a[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: leonleki1 <168353792+leonleki1@users.noreply.github.com>
+Date:   Thu Oct 17 20:34:53 2024 +0200
+
+    Dokumentacija
+
+[33mcommit 8d8ef251726988764290910aa71daa70a47d7d5f[m
+Author: leonleki1 <168353792+leonleki1@users.noreply.github.com>
+Date:   Thu Oct 17 19:50:29 2024 +0200
+
+    Dokumentacija
+
+[33mcommit 82319ad107d851397729ab38b8766ab884121cc3[m
+Merge: 1033fec 1fa9917
+Author: leonleki1 <168353792+leonleki1@users.noreply.github.com>
+Date:   Tue Oct 15 18:20:49 2024 +0200
+
+    Merge branch 'main' of https://github.com/leonleki1/Zavrsni-rad
+
+[33mcommit 1033fec98649d173aac2a417abdf275025448c3e[m
+Merge: e80ffa0 56a3903
+Author: leonleki1 <168353792+leonleki1@users.noreply.github.com>
+Date:   Tue Oct 15 18:20:46 2024 +0200
+
+    Dodana Dokumentacija
+
+[33mcommit 1fa99171bc56cee90bb63708441d9645d7d7a518[m
+Author: leonleki1 <168353792+leonleki1@users.noreply.github.com>
+Date:   Tue Oct 15 18:18:20 2024 +0200
+
+    Create README.md
+
+[33mcommit c080e078eab3153fba51ae541d05a3582d0a09e5[m
+Author: leonleki1 <168353792+leonleki1@users.noreply.github.com>
+Date:   Sun Oct 13 20:21:35 2024 +0200
+
+    Delete frontend directory
+
+[33mcommit e80ffa05d63b4ee08eead710eb7bff27232c60b4[m
+Author: leonleki1 <168353792+leonleki1@users.noreply.github.com>
+Date:   Sun Oct 13 20:14:38 2024 +0200
+
+    Backend Zavrsen
+
+[33mcommit 8e5ac179f420ce7e4418931579c9a29a8499df2a[m
+Author: leonleki1 <168353792+leonleki1@users.noreply.github.com>
+Date:   Thu Sep 26 17:34:15 2024 +0200
+
+    Ispravak DTO
+
+[33mcommit 56a390326ef71d5ff23b6121e38a3b42f55e0391[m
+Author: leonleki1 <168353792+leonleki1@users.noreply.github.com>
+Date:   Thu Sep 26 17:28:18 2024 +0200
+
+    Delete node_modules directory
+
+[33mcommit 733aa0060ffe7eb8b417aa3af2caf4dfd90ad808[m
+Author: leonleki1 <168353792+leonleki1@users.noreply.github.com>
+Date:   Thu Sep 26 17:27:44 2024 +0200
+
+    Delete frontend directory
+
+[33mcommit 1f5a7cf79505b738767f06dbf6299ee1b4f7b4b7[m
+Author: leonleki1 <168353792+leonleki1@users.noreply.github.com>
+Date:   Thu Sep 26 17:25:30 2024 +0200
+
+    v3
+
+[33mcommit 715d8de488efe4ff649f921f1b3766426e6dcd30[m
+Author: leonleki1 <168353792+leonleki1@users.noreply.github.com>
+Date:   Wed Sep 11 20:14:06 2024 +0200
+
+    Dodavanje pozadinske slike
+
+[33mcommit a433671843e206a2af656904280b69e84c831d76[m
+Author: leonleki1 <168353792+leonleki1@users.noreply.github.com>
+Date:   Wed Sep 11 19:18:35 2024 +0200
+
+    frontend dodan menu i animacija
+
+[33mcommit 418a0f0036f160968b9b17e02702345e15fb7299[m
+Merge: 9392f52 fe8b09d
+Author: leonleki1 <168353792+leonleki1@users.noreply.github.com>
+Date:   Wed Sep 11 17:58:45 2024 +0200
+
+    Merge branch 'main' of https://github.com/leonleki1/Zavrsni-rad
+
+[33mcommit 9392f52859335d2e16a49aeab4fd5fbd7c58ad3d[m
+Author: leonleki1 <168353792+leonleki1@users.noreply.github.com>
+Date:   Wed Sep 11 17:58:42 2024 +0200
+
+    v4
+
+[33mcommit fe8b09d6d83a38da9976dcedd9a85041a76939a8[m
+Author: leonleki1 <168353792+leonleki1@users.noreply.github.com>
+Date:   Mon Sep 9 20:24:52 2024 +0200
+
+    Update appsettings.Development.json
+
+[33mcommit 994b034b8cffead17ca43cb76fb3a76370c5b584[m
+Author: leonleki1 <168353792+leonleki1@users.noreply.github.com>
+Date:   Mon Sep 9 20:22:59 2024 +0200
+
+    V3
+
+[33mcommit 76e2eead850359d7e2685a53fd880f42d5bba0ae[m
+Author: leonleki1 <168353792+leonleki1@users.noreply.github.com>
+Date:   Wed Sep 4 20:33:26 2024 +0200
+
+    Korekcija v2
+
+[33mcommit e7fcd51715e6a1be80224ce6791a68415fcb2020[m
+Author: leonleki1 <168353792+leonleki1@users.noreply.github.com>
+Date:   Wed Sep 4 19:17:28 2024 +0200
+
+    Korekcija
+
+[33mcommit 400e2074dcceeb2bb64fee56eb6f3fa2d99c8808[m
+Author: leonleki1 <168353792+leonleki1@users.noreply.github.com>
+Date:   Wed Sep 4 18:02:59 2024 +0200
+
+    Dodani Models i  Context
+
+[33mcommit 6c6559ad080ab09e8467459e66f6ef32d16809b6[m
+Author: leonleki1 <168353792+leonleki1@users.noreply.github.com>
+Date:   Tue Sep 3 17:38:32 2024 +0200
+
+    V1
+
+[33mcommit 972643d1cc7975e2972b8b5a1fde0fbe7ca0eb8e[m
+Author: leonleki1 <168353792+leonleki1@users.noreply.github.com>
+Date:   Tue Sep 3 17:37:29 2024 +0200
+
+    Initial commit
